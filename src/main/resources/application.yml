@@ -1,0 +1,24 @@
+server:
+  port: 8888
+spring:
+  security:
+    user:
+      name: megaman
+      password: zero
+  application:
+    name: config-service
+  cloud:
+    config:
+      server:
+        health:
+          repositories:
+            service-dev:
+              name: service-dev-custom
+              profiles: dev
+        git:
+          uri: ${HOME}/projects/configuration-files
+          # username: paco
+          # password: megoma
+          timeout: 4
+          search-paths:
+          - '{application}'
