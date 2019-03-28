@@ -4,3 +4,8 @@ config server basic template
 1. In resources exists 2 files: application & bootstrap that contains configuration like git repo uri and secret
 2. Inside pom.xml was added spring security
 3. Ensure java security encryption is intalled
+## How to run
+```
+docker build -t wyracocha/config-server:v1.0.0 . \
+docker run --name config-server -p 8080:8888 -d -e REPO_URI=https://github.com/miguelAliaga/encuestas-config-data wyracocha/config-server:v1.0.0
+```

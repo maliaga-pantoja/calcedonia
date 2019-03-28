@@ -15,8 +15,11 @@ spring:
             service-dev:
               name: service-dev-custom
               profiles: dev
+        
         git:
-          uri: ${HOME}/projects/configuration-files
+          uri: ${REPO_URI}
+          force-pull: true
+          
           # username: paco
           # password: megoma
           timeout: 4
