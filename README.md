@@ -15,3 +15,9 @@ docker run --name config-server -p 8080:8888 -d -e REPO_URI=https://github.com/m
 REPO_URI=https://github.com/miguelAliaga/encuestas-config-data.git docker-compose up -d
 ```
 
+### using swarm
+
+```
+docker service create --name=calcedonia --replicas=2 -d -e REPO_URI=https://github.com/miguelAliaga/encuestas-config-data -p 8080:8888  wyracocha/calcedonia:v1.4.0
+```
+
