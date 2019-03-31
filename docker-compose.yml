@@ -4,7 +4,24 @@ services:
   coral:
     image: coral
     build: .
+    networks:
+      - backend
     environment:
       - REPO_URI
     ports:
       - 8080:8888
+  diamante:
+    image: 'wyracocha/diamante:v1.0.6'
+    depends_on:
+      - coral
+    networks:
+      - backend
+    environment:
+      - CS_ENDPOINT=coral:8080
+      - CS_NAME=microservice-one
+      - CS_PROFILE=prod
+      - PORT=3000
+      - NODE_ENV=PROD
+networks:
+  backend:
+    driver: bridge
